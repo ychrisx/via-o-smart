@@ -13,24 +13,15 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BrandMark } from '../components/BrandMark';
-import { DEMO_CREDENTIALS } from '../constants/demoCredentials';
 import { COLORS } from '../constants/theme';
 
 export default function LoginScreen() {
   const passwordInput = useRef<TextInput>(null);
-  const [email, setEmail] = useState(DEMO_CREDENTIALS.email);
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [error, setError] = useState('');
 
   function handleLogin() {
-    const validEmail = email.trim().toLowerCase() === DEMO_CREDENTIALS.email;
-    if (!validEmail || password !== DEMO_CREDENTIALS.password) {
-      setError('E-mail ou senha incorretos. Confira seus dados e tente novamente.');
-      return;
-    }
-
-    setError('');
     router.replace('/(tabs)');
   }
 
@@ -68,10 +59,7 @@ export default function LoginScreen() {
                   autoComplete="email"
                   autoCorrect={false}
                   keyboardType="email-address"
-                  onChangeText={(value) => {
-                    setEmail(value);
-                    setError('');
-                  }}
+                  onChangeText={setEmail}
                   onSubmitEditing={() => passwordInput.current?.focus()}
                   placeholder="seuemail@empresa.com"
                   placeholderTextColor="#A0A0A0"
@@ -88,10 +76,7 @@ export default function LoginScreen() {
                   accessibilityLabel="Senha"
                   autoCapitalize="none"
                   autoComplete="current-password"
-                  onChangeText={(value) => {
-                    setPassword(value);
-                    setError('');
-                  }}
+                  onChangeText={setPassword}
                   onSubmitEditing={handleLogin}
                   placeholder="Digite sua senha"
                   placeholderTextColor="#A0A0A0"
@@ -114,12 +99,6 @@ export default function LoginScreen() {
                   />
                 </Pressable>
               </View>
-
-              {error ? (
-                <Text accessibilityLiveRegion="polite" style={styles.error}>
-                  {error}
-                </Text>
-              ) : null}
 
               <Pressable
                 accessibilityRole="button"

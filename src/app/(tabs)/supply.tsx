@@ -1,11 +1,6 @@
-import { ComingSoonScreen } from '../../components/ComingSoonScreen';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { COLORS } from '../../constants/theme';
 
 export default function SupplyScreen() {
-  return (
-    <ComingSoonScreen
-      description="Acompanhe abastecimentos e registros operacionais nesta área."
-      icon="bus-outline"
-      title="Abastecimento"
-    />
-  );
+  return <SafeAreaView edges={['top']} style={{ backgroundColor: COLORS.background, flex: 1 }} />;
 }

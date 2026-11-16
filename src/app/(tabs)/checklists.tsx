@@ -1,11 +1,6 @@
-import { ComingSoonScreen } from '../../components/ComingSoonScreen';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { COLORS } from '../../constants/theme';
 
 export default function ChecklistsScreen() {
-  return (
-    <ComingSoonScreen
-      description="Os checklists de saída e as condições do veículo estarão disponíveis aqui."
-      icon="checkbox-outline"
-      title="Checklists"
-    />
-  );
+  return <SafeAreaView edges={['top']} style={{ backgroundColor: COLORS.background, flex: 1 }} />;
 }
