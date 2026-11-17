@@ -15,7 +15,7 @@ class User(AbstractUser):
     # Campos que o "createsuperuser" pergunta além de username e senha.
     REQUIRED_FIELDS = ["email", "perfil"]
 
-MANAGED = False #false porque não há tabela nenhuma no supabase
+MANAGED = True #true porque não há tabela nenhuma no supabase
 
 """ Ajustes feitos em relação ao brModelo (o Django não funciona sem eles):
   * Toda tabela precisa de chave primária. Ganharam `id` automático:
