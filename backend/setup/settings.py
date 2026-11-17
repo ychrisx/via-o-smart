@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 load_dotenv(BASE_DIR / ".env")
 
 # Quick-start development settings - unsuitable for production
@@ -72,7 +71,11 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.config(conn_max_age=600, conn_health_checks=True),
+    "default": dj_database_url.config(env="DATABASE_URL",
+        conn_max_age=60,          # reaproveita conexões por 60 s
+        conn_health_checks=True,
+        ssl_require=True,         # o supabase exige esse tal de SSl pelo visto não sei o que é (emoji de choro)
+        )
 }
 
 # Password validation
