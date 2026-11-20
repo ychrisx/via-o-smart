@@ -1,45 +1,19 @@
 # Viação Smart
 
-Repositório monorepo da Viação Smart, reunindo o aplicativo atual, o app mobile,
-o painel web e o backend.
+Aplicativo Expo com login de demonstração e menu inicial inspirado nas referências visuais.
 
-## Estrutura
+## Executar
 
-- `frontend/app/` - app mobile Expo/React Native das telas de abastecimento e checklists
-- `web/` - painel Next.js
-- `backend/` - API Django REST
-- `docs/` - documentação do projeto
-- `src/` - versão Expo atual já existente neste repositório
-
-## App mobile
-
-```powershell
-cd frontend/app
+```bash
 npm install
-npm start
+npx expo start
 ```
 
-## Painel web
+Abra o QR code no Expo Go (SDK 57) ou use `npm run android`, `npm run ios` ou `npm run web`.
 
-```powershell
-cd web
-npm install
-npm run dev
-```
+## Acesso de demonstração
 
-## Backend
+- E-mail: `christian.ricarth@ejemmackenzie.com.br`
+- Senha: `123456`
 
-Consulte [`.env.example`](.env.example) e execute:
-
-```powershell
-docker compose up --build
-```
-
-## Aplicativo Expo existente
-
-A versão atual na raiz continua disponível:
-
-```powershell
-npm install
-npm start
-```
+O login é validado localmente apenas para demonstração; não há servidor, cadastro ou autenticação de produção conectado.
